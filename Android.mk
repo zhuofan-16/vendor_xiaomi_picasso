@@ -19,3 +19,7 @@ LOCAL_PATH := $(call my-dir)
 ifeq ($(TARGET_DEVICE),picasso)
 
 endif
+
+LOCAL_SHARED_LIBRARIES := android.hardware.bluetooth@1.0 com.qualcomm.qti.ant@1.0 libbase libc++ libc libcutils libdl libhidlbase libhidltransport libhwbinder liblog libm libnativehelper libutils
+LOCAL_SHARED_LIBRARIES := libc++ libc libcutils libdl libhidlbase libhidltransport libhwbinder liblog libm libutils
+LOCAL_ALLOW_UNDEFINED_SYMBOLS := true

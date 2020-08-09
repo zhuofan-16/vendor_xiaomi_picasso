@@ -21,6 +21,7 @@ soong_namespace {
 
 cc_prebuilt_library_shared {
 	name: "libantradio",
+	allow_undefined_symbols: true,
 	owner: "xiaomi",
 	strip: {
 		none: true,
@@ -34,6 +35,7 @@ cc_prebuilt_library_shared {
 		},
 	},
 	compile_multilib: "both",
+	shared_libs: ["android.hardware.bluetooth@1.0", "com.qualcomm.qti.ant@1.0", "libbase", "libc++", "libc", "libcutils", "libdl", "libhidlbase", "libhidltransport", "libhwbinder", "liblog", "libm", "libnativehelper", "libutils"],
 	prefer: true,
 }
 
@@ -84,3 +86,23 @@ android_app_import {
 	product_specific: true,
 }
 
+cc_prebuilt_library_shared {
+ name: "com.qualcomm.qti.ant@1.0",
+ allow_undefined_symbols: true,
+ strip: {
+   none: true,
+ },
+ target: {
+   android_arm: {
+     srcs: [
+       "proprietary/product/lib/com.qualcomm.qti.ant@1.0.so",
+     ],
+   },
+   android_arm64: {
+     srcs: [
+       "proprietary/product/lib64/com.qualcomm.qti.ant@1.0.so",
+     ],
+   },
+ },
+	shared_libs: ["libc++", "libc", "libcutils", "libdl", "libhidlbase", "libhidltransport", "libhwbinder", "liblog", "libm", "libutils"]
+}
