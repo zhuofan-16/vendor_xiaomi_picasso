@@ -21,6 +21,8 @@ soong_namespace {
 
 cc_prebuilt_library_shared {
 	name: "libantradio",
+	shared_libs: ["libc++", "libc", "libcutils", "libdl", "libhidlbase", "liblog", "libm", "libutils"],
+	check_elf_files: false,
 	owner: "xiaomi",
 	strip: {
 		none: true,
@@ -84,3 +86,24 @@ android_app_import {
 	product_specific: true,
 }
 
+cc_prebuilt_library_shared {
+ name: "com.qualcomm.qti.ant@1.0",
+ check_elf_files: false,
+ allow_undefined_symbols: true,
+ strip: {
+   none: true,
+ },
+ target: {
+   android_arm: {
+     srcs: [
+       "proprietary/product/lib/com.qualcomm.qti.ant@1.0.so",
+     ],
+   },
+   android_arm64: {
+     srcs: [
+       "proprietary/product/lib64/com.qualcomm.qti.ant@1.0.so",
+     ],
+   },
+ },
+       shared_libs: ["libc++", "libc", "libcutils", "libdl", "libhidlbase", "liblog", "libm", "libutils"],
+}
